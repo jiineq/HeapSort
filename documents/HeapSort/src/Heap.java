@@ -78,6 +78,7 @@ public class Heap {
      * 
      * @param record 
      */
+    //STILL WORKING ON THIS 
     public void insert(byte[] record) {    
         if (isFull()) {
             throw new NoSuchElementException("Heap overflow exception");
@@ -85,13 +86,16 @@ public class Heap {
         for (int i = 0; i < 8; i++) {
             minHeap[i] = record[i];
         }        
-        size++;
-                
+        size++;                
     }
     
     /**
-     * pop first then push 
-     * @param record
+     * always pop first then push
+     * returns the record in the front of the array 
+     * so we can push another record in  
+     * 
+     * @return record
+     *      the record we are popping off the top of the heap 
      */
     public byte[] remove() {
         if (isEmpty()) {
@@ -105,10 +109,22 @@ public class Heap {
         return temp;
     }
     
+    /**
+     * checks if heap is empty
+     * @return
+     *      true if empty
+     *      false if not empty
+     */
     public boolean isEmpty() {
         return size == 0; 
     }
     
+    /**
+     * checks if heap is full
+     * @return
+     *      true if full 
+     *      false if not full
+     */
     public boolean isFull() {
         return size == MAX_SIZE;
     }
