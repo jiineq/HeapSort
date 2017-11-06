@@ -77,9 +77,7 @@ public class HeapSort {
         outputBuffer = new byte[4096];
         
         try {
-            record.read(inputBuffer);
-           
-                       
+            record.read(inputBuffer);                       
             
         }
         
