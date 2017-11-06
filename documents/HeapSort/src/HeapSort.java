@@ -1,7 +1,5 @@
-import java.io.BufferedWriter;
-import java.io.FileWriter;
 import java.io.*;
-
+import java.util.Scanner;
 
 /**
  * The main method that runs the program 
@@ -58,9 +56,38 @@ public class HeapSort {
      * 
      * 
      * @param args
+     * @throws IOException 
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         
+        byte[] inputBuffer;
+        byte[] outputBuffer;
+        
+        RandomAccessFile record = new RandomAccessFile(args[0], "rw");
+        
+        File stat = new File(args[1]); //args1 will always have a string 
+        
+        if (!stat.exists()) { //file doesn't necessary exit 
+            stat.createNewFile();
+        }
+        
+        FileWriter inStat = new FileWriter(stat);
+        
+        inputBuffer = new byte[4096];
+        outputBuffer = new byte[4096];
+        
+        try {
+            record.read(inputBuffer);
+           
+                       
+            
+        }
+        
+        catch (FileNotFoundException e) {
+            e.printStackTrace();
+            System.err.println("File not found");
+            
+        }
     }
 
 }
